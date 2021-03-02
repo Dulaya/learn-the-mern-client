@@ -1,9 +1,10 @@
 import React from 'react';
+import { AiFillGithub } from 'react-icons/ai';
 
 const containerStyle = {
   background: '#1e212d',
   height: '100vh',
-  margin: '0', 
+  margin: '0',
   overFlow: 'hidden',
   position: 'fixed',
   textAlign: 'center',
@@ -12,7 +13,7 @@ const containerStyle = {
 
 const neonStyle = {
   color: '#fff',
-  lineHeight: '100vh',
+  lineHeight: '50vh',
   fontSize: '5rem',
   margin: '0',
   textShadow: `
@@ -26,12 +27,26 @@ const neonStyle = {
     0 0 150px #0ff`,
 }
 
+const iconStyle = {
+  color: 'white',
+  cursor: 'pointer',
+  fontSize: '5rem',
+}
+
 const App = () => {
+
+  //Open New Tab
+  const openInNewTab = (url) => {
+    const newWindow = window.open(url, '_blank', 'noopener,noreferrer');
+    if (newWindow) newWindow.opener = null;
+  }
+
   return (
     <div style={containerStyle}>
       <div style={neonStyle}>
         Learn the MERN
-    </div>
+      </div>
+      <AiFillGithub style={iconStyle} onClick={() => openInNewTab('https://github.com/dulaya/learn-the-mern-client')} />
     </div>
   );
 }
