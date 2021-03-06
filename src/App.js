@@ -8,14 +8,12 @@ import BrandName from './components/BrandName';
 import Forum from './components/Forum';
 
 const containerStyle = {
-  background: '#1e212d',
   minHeight: '100vh',
   textAlign: 'center',
   width: '100vw'
 }
 
 const iconStyle = {
-  color: 'white',
   cursor: 'pointer',
   fontSize: '5rem',
 }

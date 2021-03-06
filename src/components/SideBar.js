@@ -28,7 +28,7 @@ const SideBar = () => {
                             <Card.Body>
                                 {
                                     frontEndArray.map(concept =>
-                                        <Button key={concept} variant='info' style={buttonStyle} onClick={() => setInfo(concept)}>{concept}</Button>
+                                        <Button key={concept} style={buttonStyle} onClick={() => setInfo(concept)}>{concept}</Button>
                                     )
                                 }
                             </Card.Body>
@@ -42,7 +42,7 @@ const SideBar = () => {
                             <Card.Body>
                                 {
                                     backEndArray.map(concept =>
-                                        <Button key={concept} variant='info' style={buttonStyle} onClick={() => setInfo(concept)}>{concept}</Button>
+                                        <Button key={concept} style={buttonStyle} onClick={() => setInfo(concept)}>{concept}</Button>
                                     )
                                 }
                             </Card.Body>
@@ -56,7 +56,7 @@ const SideBar = () => {
                             <Card.Body>
                                 {
                                     authenticationArray.map(concept =>
-                                        <Button key={concept} variant='info' style={buttonStyle} onClick={() => setInfo(concept)}>{concept}</Button>
+                                        <Button key={concept} style={buttonStyle} onClick={() => setInfo(concept)}>{concept}</Button>
                                     )
                                 }
                             </Card.Body>
@@ -70,7 +70,7 @@ const SideBar = () => {
                             <Card.Body>
                                 {
                                     stylingArray.map(concept =>
-                                        <Button key={concept} variant='info' style={buttonStyle} onClick={() => setInfo(concept)}>{concept}</Button>
+                                        <Button key={concept} style={buttonStyle} onClick={() => setInfo(concept)}>{concept}</Button>
                                     )
                                 }
                             </Card.Body>
@@ -79,7 +79,7 @@ const SideBar = () => {
                 </Accordion>
             </Col>
 
-            <Col style={{ color: 'white', maxWidth: '75vw', border: '1px solid' }}>
+            <Col style={{ maxWidth: '75vw', border: '1px solid' }}>
                 <p style={{ fontSize: '2rem', }}>Some info about: {info}</p>
             </Col>
         </Row>

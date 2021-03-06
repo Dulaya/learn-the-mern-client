@@ -7,3 +7,46 @@
 2. Install the dependencies by running command: npm install
 3. Start the development server by running command: npm start
 4. In a web browser, go to http://localhost:3000
+
+```
+App.js
+   └── Login Form
+   └── Registration Form
+   └── Lessons
+       └── Table of Contents
+       └── Contents
+           └── Frontend
+               └── JavaScript
+                   └── React
+                       └── create-react-app
+                       └── useState
+                       └── useEffect
+                       └── useContext                                       
+           └── Backend
+               └── Node.js
+                   └── Routing
+                   └── Handling HTTP requests
+               └── MongoDB
+                   └── Connecting to database 
+                   └── Creating schema
+                   └── Adding/removing from database
+               └── Authentication
+                   └── Creating token
+                   └── Verifying token            
+   └── Forum 
+       └── Forum Home Page
+       └── Question Page
+       └── User Page
+       └── Asking Page
+   └── API
+       └── Handle Login     
+       └── Handle Registration     
+       └── Handle Logout      
+       └── Handle Submit Question   
+       └── Handle Submit Answer
+       └── Handle Delete Question 
+       └── Handle Delete Answer     
+       └── Handle Delete User Account      
+       └── Handle Edit Question   
+       └── Handle Edit Answer
+  ```
