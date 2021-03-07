@@ -9,7 +9,7 @@
 4. In a web browser, go to http://localhost:3000
 
 ```
-App.js
+App.js [RobotAccount]
    └── Login Form
    └── Registration Form
    └── Lessons

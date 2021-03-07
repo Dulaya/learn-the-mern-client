@@ -4,12 +4,11 @@ export const containerStyle = {
     width: '100vw'
   }
 
-export const neonStyle = {
-    fontSize: '5rem',
+export const brandStyle = {
+    fontSize: '3rem',
   }
   
 export const iconStyle = {
-    color: 'white',
     cursor: 'pointer',
     fontSize: '5rem',
   }

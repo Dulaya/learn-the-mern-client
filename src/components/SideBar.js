@@ -1,88 +1,76 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { Row, Col, Accordion, Card, Button } from 'react-bootstrap';
+
+import LinkContext from '../context/LinkContext';
+import ArrowFunction from './lessons/ArrowFunction';
 
 import {
     accordionStyle,
     accordionHeaderStyle,
-    buttonStyle,
 } from './Styles.js';
 
 const SideBar = () => {
 
     const [info, setInfo] = useState('');
 
-    const frontEndArray = ['JavaScript', 'React', 'React Router DOM', 'Context API', 'API'];
-    const backEndArray = ['Node.js', 'Express.js', 'MongoDB'];
-    const authenticationArray = ['JSON Web Token'];
-    const stylingArray = ['Material UI', 'React Bootstrap'];
+    const { links, setLinks } = useContext(LinkContext);
+
+    const lessons = [
+        {
+            JavaScript: ['Arrow Function', 'try catch', 'async await', 'DOM']
+        },
+        {
+            React: ['create-react-app', 'useState', 'useEffect', 'useContext']
+        },
+        {
+            Nodejs: ['Routing', 'HTTP Requests']
+        },
+        {
+            MongoDB: ['Connecting to database', 'Creating schema', 'Adding removing from database']
+        },
+        {
+            Authentication: ['Creating token', 'Verifying token']
+        }
+    ];
 
     return (
-        <Row>
-            <Col style={{ maxWidth: '300px' }}>
-                <Accordion style={accordionStyle} defaultActiveKey="0">
-                    <Card>
-                        <Accordion.Toggle style={accordionHeaderStyle} as={Card.Header} eventKey="0">
-                            Front End
-      </Accordion.Toggle>
-                        <Accordion.Collapse eventKey="0">
-                            <Card.Body>
-                                {
-                                    frontEndArray.map(concept =>
-                                        <Button key={concept} style={buttonStyle} onClick={() => setInfo(concept)}>{concept}</Button>
-                                    )
-                                }
-                            </Card.Body>
-                        </Accordion.Collapse>
-                    </Card>
-                    <Card>
-                        <Accordion.Toggle style={accordionHeaderStyle} as={Card.Header} eventKey="1">
-                            Back End
-       </Accordion.Toggle>
-                        <Accordion.Collapse eventKey="1">
-                            <Card.Body>
-                                {
-                                    backEndArray.map(concept =>
-                                        <Button key={concept} style={buttonStyle} onClick={() => setInfo(concept)}>{concept}</Button>
-                                    )
-                                }
-                            </Card.Body>
-                        </Accordion.Collapse>
-                    </Card>
-                    <Card>
-                        <Accordion.Toggle style={accordionHeaderStyle} as={Card.Header} eventKey="2">
-                            Authentication
-       </Accordion.Toggle>
-                        <Accordion.Collapse eventKey="2">
-                            <Card.Body>
-                                {
-                                    authenticationArray.map(concept =>
-                                        <Button key={concept} style={buttonStyle} onClick={() => setInfo(concept)}>{concept}</Button>
-                                    )
-                                }
-                            </Card.Body>
-                        </Accordion.Collapse>
-                    </Card>
-                    <Card>
-                        <Accordion.Toggle style={accordionHeaderStyle} as={Card.Header} eventKey="3">
-                            Styling
-      </Accordion.Toggle>
-                        <Accordion.Collapse eventKey="3">
-                            <Card.Body>
-                                {
-                                    stylingArray.map(concept =>
-                                        <Button key={concept} style={buttonStyle} onClick={() => setInfo(concept)}>{concept}</Button>
-                                    )
-                                }
-                            </Card.Body>
-                        </Accordion.Collapse>
-                    </Card>
-                </Accordion>
-            </Col>
+        <Router>
+            <Route path='/lesson'>
+                <Row>
+                    <Col>
+                        <Accordion style={accordionStyle} defaultActiveKey={lessons[0]}>
+                            {lessons.map(tech => <Card key={Object.keys(tech)}>
+                                <Accordion.Toggle style={accordionHeaderStyle} as={Card.Header} eventKey={tech}>
+                                    {Object.keys(tech)}
+                                </Accordion.Toggle>
+                                <Accordion.Collapse eventKey={tech}>
+                                    <Card.Body>
+                                        {
+                                            Object.values(tech).map(concept => <span key={concept}>
+                                                {
+                                                    concept.map(subConcept => <div key={subConcept}>
+                                                        <Link to={`/lesson/${subConcept.replace(' ', '-')}`}>{subConcept}</Link>
+                                                    </div>)
+                                                }
+                                            </span>
+                                            )
+                                        }
+                                    </Card.Body>
+                                </Accordion.Collapse>
+                            </Card>)}
+                        </Accordion>
+                    </Col>
 
-            <Col style={{ maxWidth: '75vw', border: '1px solid' }}>
-                <p style={{ fontSize: '2rem', }}>Some info about: {info}</p>
-            </Col>
-        </Row>
+                    <Col style={{ minWidth: '75vw', border: '1px solid' }}>
+                        <Route exact path={`/lesson/arrow-function`}>
+                            <ArrowFunction />
+                        </Route>
+                    </Col>
+
+                </Row>
+            </Route>
+        </Router >
     );
 }
 

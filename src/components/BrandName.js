@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { neonStyle } from './Styles';
+import { brandStyle } from './Styles';
 
 const BrandName = () => {
 
     return (
-        <div style={neonStyle}>
+        <div style={brandStyle}>
             Learn the MERN
         </div>
     )
