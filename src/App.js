@@ -17,7 +17,7 @@ const containerStyle = {
 
 const iconStyle = {
   cursor: 'pointer',
-  fontSize: '3rem',
+  fontSize: '2rem',
 }
 
 
