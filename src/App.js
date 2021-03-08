@@ -13,6 +13,7 @@ import SideBar from "./components/SideBar";
 import BrandName from "./components/BrandName";
 import Forum from "./components/Forum";
 import Lesson from "./components/Lesson";
+import Register from './components/Register';
 
 
 const containerStyle = {
@@ -144,6 +145,10 @@ const App = () => {
 
           <Route path="/forum">
             <Forum />
+          </Route>
+
+          <Route path="/register">
+            <Register />
           </Route>
 
           <AiFillGithub
