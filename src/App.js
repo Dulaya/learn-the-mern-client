@@ -14,6 +14,7 @@ import BrandName from "./components/BrandName";
 import Forum from "./components/Forum";
 import Lesson from "./components/Lesson";
 
+
 const containerStyle = {
   minHeight: "100vh",
   textAlign: "center",
@@ -24,6 +25,7 @@ const iconStyle = {
   cursor: "pointer",
   fontSize: "5rem",
 };
+
 
 const App = () => {
   const [links, setLinks] = useState();
@@ -62,6 +64,12 @@ const App = () => {
                 <Link style={{ margin: "0 10px" }} to="/forum">
                   Forum
                 </Link>
+              </Nav>
+              <Nav>
+                <Link style={{ margin: '0 10px' }} to='/Login'>Login</Link>
+              </Nav>
+              <Nav>
+                <Link style={{ margin: '0 10px' }} to='/Register'>Register</Link>
               </Nav>
             </Navbar.Collapse>
           </Navbar>
@@ -144,6 +152,7 @@ const App = () => {
               openInNewTab("https://github.com/dulaya/learn-the-mern-client")
             }
           />
+
         </div>
       </Router>
     </LinkContext.Provider>
