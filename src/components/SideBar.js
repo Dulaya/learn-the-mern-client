@@ -6,6 +6,7 @@ import LinkContext from "../context/LinkContext";
 import ArrowFunction from "./lessons/ArrowFunction";
 import TryCatch from "./lessons/TryCatch";
 import CreateReactApp from "./lessons/CreateReactApp";
+import Git from "./lessons/Git";
 
 import { accordionStyle, accordionHeaderStyle } from "./Styles.js";
 
@@ -33,6 +34,9 @@ const SideBar = () => {
     },
     {
       Authentication: ["Creating token", "Verifying token"],
+    },
+    {
+      Git: ["Git"],
     },
   ];
 
@@ -72,7 +76,6 @@ const SideBar = () => {
               ))}
             </Accordion>
           </Col>
-
           <Col style={{ minWidth: "75vw", border: "1px solid" }}>
             <Route exact path={`/lesson/arrow-function`}>
               <ArrowFunction />
@@ -82,6 +85,9 @@ const SideBar = () => {
             </Route>
             <Route exact path={`/lesson/create-react-app`}>
               <CreateReactApp />
+            </Route>
+            <Route exact path={`/lesson/git`}>
+              <Git />
             </Route>
           </Col>
         </Row>
