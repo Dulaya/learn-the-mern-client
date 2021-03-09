@@ -25,14 +25,14 @@ const SideBar = () => {
       MongoDB: [
         "Connecting to database",
         "Creating schema",
-        "Adding removing from database",
+        "Common Mongoose queries"
       ],
     },
     {
       Authentication: ["Creating token", "Verifying token"],
     },
     {
-      Git: ["Git"],
+      "Git and GitHub": ["Git", "Common Git commands", "Pull Request", "Branch vs Fork"],
     },
   ];
 
@@ -40,7 +40,7 @@ const SideBar = () => {
     <Router>
       <Route path="/lesson">
         <Row>
-          <Col style={{ maxWidth: '250px' }}>
+          <Col style={{ maxWidth: "300px" }}>
             <Accordion style={accordionStyle} defaultActiveKey={lessons[0]}>
               {lessons.map((tech) => (
                 <Card key={Object.keys(tech)}>
@@ -73,7 +73,7 @@ const SideBar = () => {
             </Accordion>
           </Col>
 
-          <Col style={{ float: 'left', maxWidth: '75vw'}}>
+          <Col style={{ float: 'left', maxWidth: '75vw' }}>
             <Card>
               <Route exact path={`/lesson/arrow-function`}>
                 <ArrowFunction />

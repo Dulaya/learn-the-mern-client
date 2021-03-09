@@ -13,7 +13,7 @@ export const brandStyle = {
   
 export const accordionStyle = {
     margin: '10px',
-    maxWidth: '250px',
+    maxWidth: '300px',
   }
   
 export const accordionHeaderStyle = {
