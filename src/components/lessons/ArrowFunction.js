@@ -4,6 +4,7 @@ const ArrowFunction = () => {
 
     return (
         <>
+            <h1>Arrow Function</h1>
             Traditionally, JavaScript function is writteng like this:
             <p>{'function(){ }'}</p>
             <p>Arrow function was introduced in es6. It allows for an easier way to write a function: </p>

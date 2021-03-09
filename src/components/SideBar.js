@@ -1,8 +1,7 @@
-import React, { useState, useContext } from "react";
+import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import { Row, Col, Accordion, Card, Button } from "react-bootstrap";
+import { Row, Col, Accordion, Card } from "react-bootstrap";
 
-import LinkContext from "../context/LinkContext";
 import ArrowFunction from "./lessons/ArrowFunction";
 import TryCatch from "./lessons/TryCatch";
 import CreateReactApp from "./lessons/CreateReactApp";
@@ -11,9 +10,6 @@ import Git from "./lessons/Git";
 import { accordionStyle, accordionHeaderStyle } from "./Styles.js";
 
 const SideBar = () => {
-  const [info, setInfo] = useState("");
-
-  const { links, setLinks } = useContext(LinkContext);
 
   const lessons = [
     {
@@ -44,7 +40,7 @@ const SideBar = () => {
     <Router>
       <Route path="/lesson">
         <Row>
-          <Col>
+          <Col style={{ maxWidth: '250px' }}>
             <Accordion style={accordionStyle} defaultActiveKey={lessons[0]}>
               {lessons.map((tech) => (
                 <Card key={Object.keys(tech)}>
@@ -62,7 +58,7 @@ const SideBar = () => {
                           {concept.map((subConcept) => (
                             <div key={subConcept}>
                               <Link
-                                to={`/lesson/${subConcept.replace(" ", "-")}`}
+                                to={`/lesson/${subConcept.replace(/ /g, "-")}`}
                               >
                                 {subConcept}
                               </Link>
@@ -76,20 +72,24 @@ const SideBar = () => {
               ))}
             </Accordion>
           </Col>
-          <Col style={{ minWidth: "75vw", border: "1px solid" }}>
-            <Route exact path={`/lesson/arrow-function`}>
-              <ArrowFunction />
-            </Route>
-            <Route exact path={`/lesson/try-catch`}>
-              <TryCatch />
-            </Route>
-            <Route exact path={`/lesson/create-react-app`}>
-              <CreateReactApp />
-            </Route>
-            <Route exact path={`/lesson/git`}>
-              <Git />
-            </Route>
+
+          <Col style={{ float: 'left', maxWidth: '75vw'}}>
+            <Card>
+              <Route exact path={`/lesson/arrow-function`}>
+                <ArrowFunction />
+              </Route>
+              <Route exact path={`/lesson/try-catch`}>
+                <TryCatch />
+              </Route>
+              <Route exact path={`/lesson/create-react-app`}>
+                <CreateReactApp />
+              </Route>
+              <Route exact path={`/lesson/git`}>
+                <Git />
+              </Route>
+            </Card>
           </Col>
+
         </Row>
       </Route>
     </Router>
