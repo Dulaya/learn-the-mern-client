@@ -1,17 +1,67 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { Row, Col, Accordion, Card } from "react-bootstrap";
+import ReactMarkdown from "react-markdown";
 
-import ArrowFunction from "./lessons/ArrowFunction";
-import TryCatch from "./lessons/TryCatch";
-import CreateReactApp from "./lessons/CreateReactApp";
-import Git from "./lessons/Git";
+
+//Import lessons here
+import Example from './lessons/Example.md';
+import Example2 from './lessons/Example2.md';
+import ArrowFunction from "./lessons/ArrowFunction.md";
+import TryCatch from "./lessons/TryCatch.md";
+import AsyncAwait from "./lessons/AsyncAwait.md";
+import DOM from "./lessons/DOM.md";
+import CreateReactApp from "./lessons/CreateReactApp.md";
+import UseState from "./lessons/UseState.md";
+import UseEffect from "./lessons/UseEffect.md";
+import UseContext from "./lessons/UseContext.md";
+import Routing from "./lessons/Routing.md";
+import HTTPRequests from "./lessons/HTTPRequests.md";
+import ConnectingToDatabase from "./lessons/ConnectingToDatabase.md";
+import CreatingSchema from "./lessons/CreatingSchema.md";
+import CommonMongooseQueries from "./lessons/CommonMongooseQueries.md";
+import CreatingToken from "./lessons/CreatingToken.md";
+import VerifyingToken from "./lessons/VerifyingToken.md";
+import Git from "./lessons/Git.md";
+import CommonGitCommands from "./lessons/CommonGitCommands.md";
+import PullRequest from "./lessons/PullRequest.md";
+import BranchVsFork from "./lessons/BranchVsFork.md";
 
 import { accordionStyle, accordionHeaderStyle } from "./Styles.js";
 
 const SideBar = () => {
 
+  const [currentState, setCurrentState] = useState([]);
+
+  //Important: Order does matter. Make sure order matches contents in lessons array below
+  const markDownLessons = [
+    Example, 
+    Example2, 
+    ArrowFunction, 
+    TryCatch, 
+    AsyncAwait,
+    DOM,
+    CreateReactApp, 
+    UseState,
+    UseEffect,
+    UseContext,
+    Routing, 
+    HTTPRequests,
+    ConnectingToDatabase,
+    CreatingSchema,
+    CommonMongooseQueries,
+    CreatingToken,
+    VerifyingToken,
+    Git,
+    CommonGitCommands,
+    PullRequest,
+    BranchVsFork,
+  ];
+
   const lessons = [
+    {
+      Example: ["Example", "Example 2"],
+    },
     {
       JavaScript: ["Arrow Function", "try catch", "async await", "DOM"],
     },
@@ -36,11 +86,38 @@ const SideBar = () => {
     },
   ];
 
+  //Loop through the concepts and save links in array
+  var links = [];
+
+  for (var i = 0; i < lessons.length; i++) {
+    for (var j = 0; j < Object.values(lessons[i]).length; j++) {
+      for (var k = 0; k < Object.values(lessons[i])[j].length; k++) {
+        links.push(Object.values(lessons[i])[j][k].replace(/ /g, "-"));
+      }
+    }
+  }
+
+
+  useEffect(() => {
+    //Clear state. This is necessary because useEffect will keep appending state.
+    setCurrentState([]);
+
+    for (var i = 0; i < markDownLessons.length; i++) {
+      fetch(markDownLessons[i])
+        .then(response => response.text())
+        .then(text => {
+          setCurrentState(prevState => [...prevState, text])
+        });
+    }
+  }, [/*Do Nothing Here*/]);
+
+  console.log(currentState)
+
   return (
     <Router>
       <Route path="/lesson">
         <Row>
-          <Col style={{ maxWidth: "300px" }}>
+          <Col style={{ maxWidth: "350px" }}>
             <Accordion style={accordionStyle} defaultActiveKey={lessons[0]}>
               {lessons.map((tech) => (
                 <Card key={Object.keys(tech)}>
@@ -73,8 +150,16 @@ const SideBar = () => {
             </Accordion>
           </Col>
 
-          <Col style={{ float: 'left', maxWidth: '75vw' }}>
-            <Card>
+          <Col style={{ maxWidth: '90vw' }}>
+            <Card style={{ maxWidth: '75vw', padding: '10px', }}>
+
+              {
+                links.map(link => <Route exact path={`/lesson/${link}`}>
+                  <ReactMarkdown source={currentState[links.findIndex(element => element === link)]} />
+                </Route>)
+              }
+
+              {/*
               <Route exact path={`/lesson/arrow-function`}>
                 <ArrowFunction />
               </Route>
@@ -87,6 +172,7 @@ const SideBar = () => {
               <Route exact path={`/lesson/git`}>
                 <Git />
               </Route>
+*/}
             </Card>
           </Col>
 

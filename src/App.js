@@ -11,6 +11,7 @@ import { Container, Navbar, Nav, CardDeck, Card } from "react-bootstrap";
 import SideBar from "./components/SideBar";
 import BrandName from "./components/BrandName";
 import Forum from "./components/Forum";
+import Login from './components/Login';
 import Register from './components/Register';
 
 
@@ -142,6 +143,10 @@ const App = () => {
 
         <Route path="/forum">
           <Forum />
+        </Route>
+
+        <Route path="/login">
+          <Login />
         </Route>
 
         <Route path="/register">

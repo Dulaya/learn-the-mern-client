@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import axios from 'axios';
+//import axios from 'axios';
 
 import { Container, Col, Form, ListGroup, Button, Spinner } from 'react-bootstrap';
 
@@ -22,11 +22,12 @@ const Register = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+        /*
         const userInfo = {
             username: document.getElementById('username').value,
             email: document.getElementById('email').value,
             password: document.getElementById('password').value,
-        }
+        }*/
 
         try {
             setRegisteringStatus(true);
