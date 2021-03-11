@@ -24,4 +24,4 @@ Example: `git commit -m "update arrow function lesson"`
 
 Example: `git push -u origin arrow-function`
 
-13. Wait a few minutes for Netlify to rebuild. Go to [https://learnthemern.com/lesson](https://learnthemern.com/lesson) to see your work live.
+13. Wait a few minutes (usually less than 3 minutes) for Netlify to automatically rebuild. Go to [https://learnthemern.com/lesson](https://learnthemern.com/lesson) to see your work live.
