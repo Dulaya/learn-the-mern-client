@@ -7,8 +7,8 @@ This guide is mainly for members that are not familiar with the Git & GitHub wor
 2. Clone the repo by running the command line: `git clone https://github.com/Dulaya/learn-the-mern-client.git`
 3. After it finishes cloning, CD into the project directiory: `cd learn-the-mern-client`
 4. Open the project folder with a code editor. If you use VSCode, you can use the command: `code .`
-5. Install all the dependencies: `npm install` or `npm i`
-6. Create a new branch by running the command: `git checkout -b [your-branch]` . 
+5. Install all the dependencies: `npm install` or `npm i`. After all the dependencies are install (this may take 5-10 minutes or longer depending on your PC speed), start the development server by running the command: `npm start`
+6. Create a new branch by running the command: `git checkout -b [your-branch]` 
 
 Example: `git checkout -b arrow-function`
 
