@@ -15,6 +15,7 @@ import CreateReactApp from "./lessons/CreateReactApp.md";
 import UseState from "./lessons/UseState.md";
 import UseEffect from "./lessons/UseEffect.md";
 import UseContext from "./lessons/UseContext.md";
+import ReactStyling from "./lessons/ReactStyling.md";
 import Routing from "./lessons/Routing.md";
 import HTTPRequests from "./lessons/HTTPRequests.md";
 import ConnectingToDatabase from "./lessons/ConnectingToDatabase.md";
@@ -45,6 +46,7 @@ const SideBar = () => {
     {"usestate":UseState},
     {"useeffect":UseEffect},
     {"usecontext":UseContext},
+    {"react-styling":ReactStyling},
     {"routing":Routing}, 
     {"http-requests":HTTPRequests},
     {"connecting-to-database":ConnectingToDatabase},
@@ -66,7 +68,7 @@ const SideBar = () => {
       JavaScript: ["Arrow Function", "try catch", "async await", "DOM"],
     },
     {
-      React: ["create-react-app", "useState", "useEffect", "useContext"],
+      React: ["create-react-app", "useState", "useEffect", "useContext", "React Styling"],
     },
     {
       Nodejs: ["Routing", "HTTP Requests"],
