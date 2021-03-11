@@ -24,7 +24,7 @@ Example: `git commit -m "update arrow function lesson"`
 
 Example: `git push -u origin arrow-function`
 
-13. Go to the repo on [GitHub](https://github.com/dulaya/learn-the-mern-client) and click on **branches**. Click on **pull request**.
+13. Go to the repo on [GitHub](https://github.com/dulaya/learn-the-mern-client) and click on **branches**. Click on **New pull request** and click **Create pull request**.
 
 14. Someone will review your request. If your pull request is merged, Netlify will automatically rebuild the site. This may take a few minutes. After that, you can go to [https://learnthemern.com/lesson](https://learnthemern.com/lesson) to see your work live.
 
