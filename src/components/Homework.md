@@ -1,6 +1,10 @@
 ### Homework: Write an article for this site.
 
-This guide is mainly for members that are not familiar with the Git & GitHub workflow. 
+This guide is mainly for members that are not familiar with the Git & GitHub workflow. The primary objective of this assignment are: 
+- To ensure that you Git and Node.js install on your computer
+- To ensure that you understand the basics of Git & GitHub workflow
+- To expose you to the basics of React
+- To let you do your own research and explain your knowledge clearly
 
 0. If you don't have access to the [repo](https://github.com/Dulaya/learn-the-mern-client), message me your GitHub repo on Discord so I can invite you as collaborator.
 1. Make sure you have [Git](https://git-scm.com/) and [Node.js](https://nodejs.org/en/) install on your computer. 
