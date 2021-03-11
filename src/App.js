@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import {
   BrowserRouter as Router,
   Route,
@@ -13,7 +13,8 @@ import BrandName from "./components/BrandName";
 import Forum from "./components/Forum";
 import Login from './components/Login';
 import Register from './components/Register';
-
+import Homework from './components/Homework.md';
+import ReactMarkdown from "react-markdown";
 
 const containerStyle = {
   minHeight: "100vh",
@@ -28,6 +29,15 @@ const iconStyle = {
 
 
 const App = () => {
+
+  const [homeworkMD, setHomeworkMD] = useState('');
+
+  //Fecth .md
+  useEffect(() => {
+    fetch(Homework)
+    .then(response => response.text())
+    .then(text => setHomeworkMD(text))
+  }, []);
 
   //Open New Tab
   const openInNewTab = (url) => {
@@ -58,7 +68,7 @@ const App = () => {
                 to="/lesson"
                 exact
               >
-                lesson
+                Lesson
                 </NavLink>
             </Nav>
             <Nav>
@@ -71,6 +81,9 @@ const App = () => {
             </Nav>
             <Nav>
               <Link style={{ margin: '0 10px' }} to='/Register'>Register</Link>
+            </Nav>
+            <Nav>
+            <Link style={{ margin: '0 10px' }} to='/Homework'>Homework</Link>
             </Nav>
           </Navbar.Collapse>
         </Navbar>
@@ -151,6 +164,12 @@ const App = () => {
 
         <Route path="/register">
           <Register />
+        </Route>
+
+        <Route path="/homework">
+        <div style={{margin: 'auto 15vw',}}>
+          <ReactMarkdown>{homeworkMD}</ReactMarkdown>
+          </div>
         </Route>
 
         <div style={{ bottom: "0", width: "100%" }}>
