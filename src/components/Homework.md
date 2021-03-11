@@ -20,8 +20,8 @@ Example: `git checkout -b arrow-function`
 
 Example: `git commit -m "update arrow function lesson"`
 
-12. Push your branch to the GitHub repo by running the command: `git push -u origin [your-branch]`
+12. Push your branch to the GitHub repo by running the command: `git push -u origin [your-branch]` (same name from step 6)
 
 Example: `git push -u origin arrow-function`
 
-13. Wait a few minutes for Netlify to rebuild. Go to [https://learnthemern.com/lesson](https://learnthemern.com/lesson) to see your work live.
+13. Wait a few minutes (usually less than 3 minutes) for Netlify to automatically rebuild. Go to [https://learnthemern.com/lesson](https://learnthemern.com/lesson) to see your work live.
