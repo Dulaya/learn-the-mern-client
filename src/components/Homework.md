@@ -24,4 +24,8 @@ Example: `git commit -m "update arrow function lesson"`
 
 Example: `git push -u origin arrow-function`
 
-13. Wait a few minutes (usually less than 3 minutes) for Netlify to automatically rebuild. Go to [https://learnthemern.com/lesson](https://learnthemern.com/lesson) to see your work live.
+13. Go to the repo on [GitHub](https://github.com/dulaya/learn-the-mern-client) and click on **branches**. Click on **pull request**.
+
+14. Someone will review your request. If your pull request is merged, Netlify will automatically rebuild the site. This may take a few minutes. After that, you can go to [https://learnthemern.com/lesson](https://learnthemern.com/lesson) to see your work live.
+
+Contact me if there's an issue either in the development and/or deployment process.
