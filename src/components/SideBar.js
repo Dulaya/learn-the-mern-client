@@ -35,27 +35,27 @@ const SideBar = () => {
 
   //Important: Order does matter. Make sure order matches contents in lessons array below
   const markDownLessons = [
-    Example, 
-    Example2, 
-    ArrowFunction, 
-    TryCatch, 
-    AsyncAwait,
-    DOM,
-    CreateReactApp, 
-    UseState,
-    UseEffect,
-    UseContext,
-    Routing, 
-    HTTPRequests,
-    ConnectingToDatabase,
-    CreatingSchema,
-    CommonMongooseQueries,
-    CreatingToken,
-    VerifyingToken,
-    Git,
-    CommonGitCommands,
-    PullRequest,
-    BranchVsFork,
+    {"example":Example}, 
+    {"example-2":Example2}, 
+    {"arrow-function":ArrowFunction}, 
+    {"try-catch":TryCatch}, 
+    {"async-await":AsyncAwait},
+    {"DOM":DOM},
+    {"create-react-app":CreateReactApp}, 
+    {"usestate":UseState},
+    {"useeffect":UseEffect},
+    {"usecontext":UseContext},
+    {"routing":Routing}, 
+    {"http-requests":HTTPRequests},
+    {"connecting-to-database":ConnectingToDatabase},
+    {"creating-schema":CreatingSchema},
+    {"common-mongoose-queries":CommonMongooseQueries},
+    {"creating-token":CreatingToken},
+    {"verifying-token":VerifyingToken},
+    {"git":Git},
+    {"common-git-commands":CommonGitCommands},
+    {"pull-request":PullRequest},
+    {"branch-vs-fork":BranchVsFork},
   ];
 
   const lessons = [
@@ -99,19 +99,23 @@ const SideBar = () => {
 
 
   useEffect(() => {
+
     //Clear state. This is necessary because useEffect will keep appending state.
     setCurrentState([]);
 
-    for (var i = 0; i < markDownLessons.length; i++) {
-      fetch(markDownLessons[i])
+markDownLessons.forEach(element => {
+
+    var tempObj = {};
+        fetch(Object.values(element))
         .then(response => response.text())
         .then(text => {
-          setCurrentState(prevState => [...prevState, text])
+          tempObj[Object.keys(element)] = text;
+          setCurrentState(prevState => [...prevState, tempObj]);
         });
-    }
-  }, [/*Do Nothing Here*/]);
 
-  console.log(currentState)
+      });
+  
+  }, [/*Do Nothing Here*/]);
 
   return (
     <Router>
@@ -152,27 +156,11 @@ const SideBar = () => {
 
           <Col style={{ maxWidth: '90vw' }}>
             <Card style={{ maxWidth: '75vw', padding: '10px', }}>
-
               {
-                links.map(link => <Route exact path={`/lesson/${link}`}>
-                  <ReactMarkdown source={currentState[links.findIndex(element => element === link)]} />
+                currentState.map(element => <Route key={Object.keys(element)} exact path={`/lesson/${Object.keys(element)}`}>
+                <ReactMarkdown>{Object.values(element).toString()}</ReactMarkdown>
                 </Route>)
               }
-
-              {/*
-              <Route exact path={`/lesson/arrow-function`}>
-                <ArrowFunction />
-              </Route>
-              <Route exact path={`/lesson/try-catch`}>
-                <TryCatch />
-              </Route>
-              <Route exact path={`/lesson/create-react-app`}>
-                <CreateReactApp />
-              </Route>
-              <Route exact path={`/lesson/git`}>
-                <Git />
-              </Route>
-*/}
             </Card>
           </Col>
 
