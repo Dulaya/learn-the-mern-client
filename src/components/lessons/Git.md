@@ -51,7 +51,7 @@ Now you have created a new repo (short for repository) we will clone it on to ou
 
 To clone our repo we will type git clone (paste the address or your repo hero) and then press enter e.g :
 
-git clone git@github.com:Your-Name-Here/your-project.git
+git clone https://github.com:Your-Name-Here/your-project.git
 
 This will create a copy of your repo . From here once we are in the folder You can go ahead and create and edit all you like. Once we are ready to save some changes we move on to git add.
 
@@ -107,13 +107,17 @@ In order to switch branches we would use the command:
 
 If we are working on someone elses repo it is important we are given the permissions to contribute else we will get errors once we attempt to do so.
 
-## Pull requests
+## getting updates
 
-If we don't own the repo like if we are contributing to someone else's repo or we need someone to review the code before adding their repo we create a pull request. This is also what we do if we don't have write access and want to contribute. Before we merge the code we create a pull request.  After we make a pr, we can still update the code just by making additional commits and pushing them up to github, as long as its on the same branch that you are making the pr with. Once the pull request is merged, that secondary branch is generally deleted and we switch back to the master branch. Then when we want to make additional changes, we create another branch and start the process over. 
-
-We can also use pull requests to get the most updated version of the repo including any changes. Following is an example of a pull request:
+to get the latest version including all of the updates for a project you are working on we use the following:
 
 git pull
+
+## Pull requests
+
+If we don't own the repo like if we are contributing to someone else's repo or we need someone to review the code before adding their repo we create a pull request. This is also what we do if we don't have write access and want to contribute. Before we merge the code we create a pull request. This can be done manualy with the graphical interface of github. After we make a pr, we can still update the code just by making additional commits and pushing them up to github, as long as its on the same branch that you are making the pr with. Once the pull request is merged, that secondary branch is generally deleted and we switch back to the master branch. Then when we want to make additional changes, we create another branch and start the process over. 
+
+
 
 ## undoing in git
 
