@@ -5,8 +5,6 @@ import ReactMarkdown from "react-markdown";
 
 
 //Import lessons here
-import Example from './lessons/Example.md';
-import Example2 from './lessons/Example2.md';
 import ArrowFunction from "./lessons/ArrowFunction.md";
 import TryCatch from "./lessons/TryCatch.md";
 import AsyncAwait from "./lessons/AsyncAwait.md";
@@ -36,8 +34,6 @@ const SideBar = () => {
 
   //Important: Order does matter. Make sure order matches contents in lessons array below
   const markDownLessons = [
-    {"example":Example}, 
-    {"example-2":Example2}, 
     {"arrow-function":ArrowFunction}, 
     {"try-catch":TryCatch}, 
     {"async-await":AsyncAwait},
@@ -61,9 +57,6 @@ const SideBar = () => {
   ];
 
   const lessons = [
-    {
-      Example: ["Example", "Example 2"],
-    },
     {
       JavaScript: ["Arrow Function", "try catch", "async await", "DOM"],
     },
@@ -122,7 +115,7 @@ markDownLessons.forEach(element => {
   return (
     <Router>
       <Route path="/lesson">
-        <Row>
+        <Row style={{width: '100vw'}}>
           <Col style={{ maxWidth: "350px" }}>
             <Accordion style={accordionStyle} defaultActiveKey={lessons[0]}>
               {lessons.map((tech) => (
@@ -157,7 +150,7 @@ markDownLessons.forEach(element => {
           </Col>
 
           <Col style={{ maxWidth: '90vw' }}>
-            <Card style={{ maxWidth: '75vw', padding: '10px', }}>
+            <Card style={{ fontSize: '1.25rem', maxWidth: '75vw', padding: '50px', textAlign: 'left'}}>
               {
                 currentState.map(element => <Route key={Object.keys(element)} exact path={`/lesson/${Object.keys(element)}`}>
                 <ReactMarkdown>{Object.values(element).toString()}</ReactMarkdown>

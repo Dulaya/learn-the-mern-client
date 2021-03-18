@@ -5,6 +5,7 @@ import {
   Link,
   NavLink,
 } from "react-router-dom";
+import ReactMarkdown from "react-markdown";
 import { AiFillGithub } from "react-icons/ai";
 import { Container, Navbar, Nav, CardDeck, Card } from "react-bootstrap";
 
@@ -14,7 +15,7 @@ import Forum from "./components/Forum";
 import Login from './components/Login';
 import Register from './components/Register';
 import Homework from './components/Homework.md';
-import ReactMarkdown from "react-markdown";
+import About from "./components/About";
 
 const containerStyle = {
   minHeight: "100vh",
@@ -84,6 +85,9 @@ const App = () => {
             </Nav>
             <Nav>
             <Link style={{ margin: '0 10px' }} to='/Homework'>Homework</Link>
+            </Nav>
+            <Nav>
+            <Link style={{ margin: '0 10px' }} to='/about'>About</Link>
             </Nav>
           </Navbar.Collapse>
         </Navbar>
@@ -164,6 +168,10 @@ const App = () => {
 
         <Route path="/register">
           <Register />
+        </Route>
+
+        <Route path="/about">
+          <About />
         </Route>
 
         <Route path="/homework">
