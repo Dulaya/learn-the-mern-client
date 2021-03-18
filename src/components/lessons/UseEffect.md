@@ -4,11 +4,11 @@ useEffect is a hook that manages side effects in functional components. When usi
 
 Some example code that uses useState is the following:
 
-function Counter => {
+( ) => {
 
 const [counter, setCounter] = useState(0);
 
-useEffect( () => {
+useEffect( ( ) => {
 
 console.log(`Count is {counter}`), [ ]
 

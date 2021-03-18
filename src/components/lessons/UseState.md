@@ -8,7 +8,7 @@ useState returns an array, the first element of this array is the state variable
 
 import React, { useState } from ‘react’;
 
-function ExampleOne => {
+( ) => {
 
 //Declaring a new state variable, we’ll call it “counter”
 
