@@ -41,7 +41,7 @@ const About = () => {
                 </Card>
             </Col>
 
-            <CardDeck style={{ margin: '10px' }}>
+            <CardDeck style={{ margin: '10px', maxWidth: '90vw' }}>
                 {
                     bios.map(element =>
                         <Card key={element} style={{ maxWidth: '350px', padding: '10px' }}>
