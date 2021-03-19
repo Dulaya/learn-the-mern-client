@@ -16,6 +16,7 @@ import Login from './components/Login';
 import Register from './components/Register';
 import Homework from './components/Homework.md';
 import About from "./components/About";
+import Homework2Bio from "./components/Homework-2-bio.md";
 
 const containerStyle = {
   minHeight: "100vh",
@@ -32,12 +33,19 @@ const iconStyle = {
 const App = () => {
 
   const [homeworkMD, setHomeworkMD] = useState('');
+  const [homework2MD, setHomework2MD] = useState('');
 
   //Fecth .md
   useEffect(() => {
     fetch(Homework)
     .then(response => response.text())
     .then(text => setHomeworkMD(text))
+  }, []);
+
+  useEffect(() => {
+    fetch(Homework2Bio)
+    .then(response => response.text())
+    .then(text => setHomework2MD(text))
   }, []);
 
   //Open New Tab
@@ -175,8 +183,14 @@ const App = () => {
         </Route>
 
         <Route path="/homework">
-        <div style={{margin: 'auto 15vw',}}>
+        <div style={{margin: 'auto 15vw',textAlign: 'left'}}>
           <ReactMarkdown>{homeworkMD}</ReactMarkdown>
+          </div>
+        </Route>
+
+        <Route path="/homework-2-bio">
+        <div style={{margin: 'auto 15vw',textAlign: 'left'}}>
+          <ReactMarkdown>{homework2MD}</ReactMarkdown>
           </div>
         </Route>
 
