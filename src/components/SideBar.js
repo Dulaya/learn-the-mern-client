@@ -34,26 +34,26 @@ const SideBar = () => {
 
   //Important: Order does matter. Make sure order matches contents in lessons array below
   const markDownLessons = [
-    {"arrow-function":ArrowFunction}, 
-    {"try-catch":TryCatch}, 
-    {"async-await":AsyncAwait},
-    {"DOM":DOM},
-    {"create-react-app":CreateReactApp}, 
-    {"usestate":UseState},
-    {"useeffect":UseEffect},
-    {"usecontext":UseContext},
-    {"react-styling":ReactStyling},
-    {"routing":Routing}, 
-    {"http-requests":HTTPRequests},
-    {"connecting-to-database":ConnectingToDatabase},
-    {"creating-schema":CreatingSchema},
-    {"common-mongoose-queries":CommonMongooseQueries},
-    {"creating-token":CreatingToken},
-    {"verifying-token":VerifyingToken},
-    {"git":Git},
-    {"common-git-commands":CommonGitCommands},
-    {"pull-request":PullRequest},
-    {"branch-vs-fork":BranchVsFork},
+    { "arrow-function": ArrowFunction },
+    { "try-catch": TryCatch },
+    { "async-await": AsyncAwait },
+    { "DOM": DOM },
+    { "create-react-app": CreateReactApp },
+    { "usestate": UseState },
+    { "useeffect": UseEffect },
+    { "usecontext": UseContext },
+    { "react-styling": ReactStyling },
+    { "routing": Routing },
+    { "http-requests": HTTPRequests },
+    { "connecting-to-database": ConnectingToDatabase },
+    { "creating-schema": CreatingSchema },
+    { "common-mongoose-queries": CommonMongooseQueries },
+    { "creating-token": CreatingToken },
+    { "verifying-token": VerifyingToken },
+    { "git": Git },
+    { "common-git-commands": CommonGitCommands },
+    { "pull-request": PullRequest },
+    { "branch-vs-fork": BranchVsFork },
   ];
 
   const lessons = [
@@ -98,24 +98,24 @@ const SideBar = () => {
     //Clear state. This is necessary because useEffect will keep appending state.
     setCurrentState([]);
 
-markDownLessons.forEach(element => {
+    markDownLessons.forEach(element => {
 
-    var tempObj = {};
-        fetch(Object.values(element))
+      var tempObj = {};
+      fetch(Object.values(element))
         .then(response => response.text())
         .then(text => {
           tempObj[Object.keys(element)] = text;
           setCurrentState(prevState => [...prevState, tempObj]);
         });
 
-      });
-  
+    });
+
   }, [/*Do Nothing Here*/]);
 
   return (
     <Router>
       <Route path="/lesson">
-        <Row style={{width: '100vw'}}>
+        <Row style={{ width: '100vw' }}>
           <Col style={{ maxWidth: "350px" }}>
             <Accordion style={accordionStyle} defaultActiveKey={lessons[0]}>
               {lessons.map((tech) => (
@@ -150,10 +150,10 @@ markDownLessons.forEach(element => {
           </Col>
 
           <Col style={{ maxWidth: '90vw' }}>
-            <Card style={{ fontSize: '1.25rem', maxWidth: '75vw', padding: '50px', textAlign: 'left'}}>
+            <Card style={{ fontSize: '1.25rem', maxWidth: '75vw', padding: '50px', textAlign: 'left' }}>
               {
                 currentState.map(element => <Route key={Object.keys(element)} exact path={`/lesson/${Object.keys(element)}`}>
-                <ReactMarkdown>{Object.values(element).toString()}</ReactMarkdown>
+                  <ReactMarkdown>{Object.values(element).toString()}</ReactMarkdown>
                 </Route>)
               }
             </Card>
