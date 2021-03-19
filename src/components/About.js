@@ -10,7 +10,7 @@ const About = () => {
 
     const [bios, setBios] = useState([]);
 
-    const importedBios = [Dulaya, Tom, ];
+    const importedBios = [Dulaya, Tom,];
 
     useEffect(() => {
 
@@ -41,7 +41,11 @@ const About = () => {
                 </Card>
             </Col>
 
-            <CardDeck style={{ margin: '10px', maxWidth: '90vw' }}>
+            <Card style={{margin: '10px', }}>
+                <Card.Title style={{margin: '10px',}}>Meet the Team</Card.Title>
+            </Card>
+
+            <CardDeck style={{ margin: '10px', maxWidth: '90vw' }}>           
                 {
                     bios.map(element =>
                         <Card key={element} style={{ maxWidth: '350px', padding: '10px' }}>
