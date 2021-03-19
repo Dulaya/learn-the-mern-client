@@ -4,12 +4,13 @@ import ReactMarkdown from "react-markdown";
 
 //Import biography 
 import Dulaya from './biography/Dulaya.md';
+import Tom from './biography/Tom.md';
 
 const About = () => {
 
     const [bios, setBios] = useState([]);
 
-    const importedBios = [Dulaya, ]
+    const importedBios = [Dulaya, Tom, ];
 
     useEffect(() => {
 
