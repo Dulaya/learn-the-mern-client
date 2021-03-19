@@ -3,13 +3,13 @@ import { Container, Col, CardDeck, Card } from 'react-bootstrap';
 import ReactMarkdown from "react-markdown";
 
 //Import biography 
-
+import Dulaya from './biography/Dulaya.md';
 
 const About = () => {
 
     const [bios, setBios] = useState([]);
 
-    const importedBios = []
+    const importedBios = [Dulaya, ]
 
     useEffect(() => {
 
