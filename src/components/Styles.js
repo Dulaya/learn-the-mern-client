@@ -5,17 +5,15 @@ export const containerStyle = {
   }
 
 export const brandStyle = {
-    fontSize: '3rem',
-  }
-  
-export const iconStyle = {
-    cursor: 'pointer',
-    fontSize: '5rem',
+    backgroundImage: `linear-gradient(to right, rgb(182, 244, 146), rgb(51, 139, 147))`,
+    color: 'white',
+    fontSize: '2rem',
+    textAlign: 'center',
   }
   
 export const accordionStyle = {
     margin: '10px',
-    maxWidth: '250px',
+    maxWidth: '350px',
   }
   
 export const accordionHeaderStyle = {
