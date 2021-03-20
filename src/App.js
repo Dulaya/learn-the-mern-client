@@ -45,9 +45,8 @@ const App = () => {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav>
-               {/* why is this not working? I'm adding a visual feedback to see if this link is active or not */}
                 <NavLink
-                  activeClassName={{
+                  activeStyle={{
                     fontWeight: "bold",
                     color: "red",
                   }}
