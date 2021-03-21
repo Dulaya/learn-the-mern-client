@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-//import axios from 'axios';
+import axios from 'axios';
 
 import { Container, Col, Form, ListGroup, Button, Spinner } from 'react-bootstrap';
-
-//import { registerURL } from '../urls';
 
 const columnStyle = {
     margin: '10px auto',
@@ -22,17 +20,21 @@ const Register = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        /*
         const userInfo = {
             username: document.getElementById('username').value,
             email: document.getElementById('email').value,
             password: document.getElementById('password').value,
-        }*/
+        }
 
         try {
             setRegisteringStatus(true);
 
-            //await axios.post(registerURL, userInfo);
+            //Note: the registerURL needs to change after during production. 
+            //It cannot be localhost:5000
+            //Need to create enviroment variable in Netlify during production.
+            const registerURL = 'http://localhost:5000/register' || process.env.Register_URL;
+
+            await axios.post(registerURL, userInfo);
 
             history.push('/login');
         } catch (error) {            
