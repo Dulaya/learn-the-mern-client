@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import { Row, Col, Accordion, Card } from "react-bootstrap";
+import { Row, Col, Accordion, Card, ListGroup, Image } from "react-bootstrap";
 import ReactMarkdown from "react-markdown";
 
 
@@ -151,6 +151,56 @@ const SideBar = () => {
 
           <Col style={{ maxWidth: '90vw' }}>
             <Card style={{ fontSize: '1.25rem', maxWidth: '75vw', padding: '50px', textAlign: 'left' }}>
+            
+            {/*Popular Lesson Icons*/}
+            <Route exact path='/lesson'>
+              <h1 style={{textAlign: 'center'}}>Popular Lessons</h1>
+
+            <Row style={{textAlign: 'center'}}>
+              <Col>             
+                 <Link to='/lesson/create-react-app'>
+                <ListGroup.Item>
+                <Image src="/images/React.png" style={{maxHeight:'150px'}} />
+                </ListGroup.Item>    
+                <ListGroup.Item>
+                  create-react-app
+                  </ListGroup.Item>    
+                </Link>
+              </Col>  
+              <Col>             
+                 <Link to='/lesson/useState'>
+                <ListGroup.Item>
+                <Image src="/images/Texas.png" style={{maxHeight:'150px'}} />
+                </ListGroup.Item>    
+                <ListGroup.Item>
+                  useState
+                  </ListGroup.Item>    
+                </Link>
+              </Col>  
+              <Col>             
+                 <Link to='/lesson/connecting-to-database'>
+                <ListGroup.Item>
+                <Image src="/images/Mongo.png" style={{maxHeight:'150px'}} />
+                </ListGroup.Item>    
+                <ListGroup.Item>
+                  Connecting to MongoDB
+                  </ListGroup.Item>    
+                </Link>
+              </Col>  
+              <Col>             
+                 <Link to='/lesson/Git'>
+                <ListGroup.Item>
+                <Image src="/images/Git.png" style={{maxHeight:'150px'}} />
+                </ListGroup.Item>    
+                <ListGroup.Item>
+                Git
+                  </ListGroup.Item>    
+                </Link>
+              </Col>  
+            </Row>
+
+            </Route>
+
               {
                 currentState.map(element => <Route key={Object.keys(element)} exact path={`/lesson/${Object.keys(element)}`}>
                   <ReactMarkdown>{Object.values(element).toString()}</ReactMarkdown>
