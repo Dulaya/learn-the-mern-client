@@ -1,4 +1,4 @@
-![Camilo Cervantes](https://i.imgur.com/QZdKZ43.jpg)
+![Camilo Cervantes](https://i.imgur.com/vnakGDL.jpeg)
 
 
 ##### Camilo Cervantes
