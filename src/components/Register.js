@@ -41,7 +41,7 @@ const Register = () => {
       username: document.getElementById("username").value,
       email: document.getElementById("email").value,
       password: document.getElementById("password").value,
-      "repeat-password": document.getElementById("repeat-password").value,
+      repeatPassword: document.getElementById("repeatPassword").value,
     };
 
     try {
@@ -115,7 +115,7 @@ const Register = () => {
               <ListGroup.Item>
                 <Form.Control
                   type="password"
-                  id="repeat-password"
+                  id="repeatPassword"
                   placeholder="Repeat password"
                   autoComplete="off"
                   style={inputStyle}

@@ -44,7 +44,9 @@ const Login = () => {
     try {
       const loginURL = "http://localhost:5000/login" || process.env.Login_URL;
 
-      await axios.post(loginURL, userInfo);
+      await axios.post(loginURL, userInfo)
+      .then(response => alert(response.data))
+
     } catch (error) {
         alert(error.response.data);
     }
